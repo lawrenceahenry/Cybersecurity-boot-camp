@@ -35,21 +35,21 @@ These files have been tested and used to generate a live ELK deployment on Azure
         pip:
           name: docker
           state: present
-          
-         #Use command module
-     - name: Increase virtual memory
+
+        #Use command module
+      - name: Increase virtual memory
         command: sysctl -w vm.max_map_count=262144
 
         #Use sysctl module
-     - name: Use more memory
+      - name: Use more memory
         sysctl:
           name: vm.max_map_count
           value: "262144"
           state: present
           reload: yes
 
-       #Use docker_container module
-     - name: download and launch a docker elk container
+              #Use docker_container module
+      - name: download and launch a docker elk container
         docker_container:
           name: elk
           image: sebp/elk:761
@@ -59,13 +59,14 @@ These files have been tested and used to generate a live ELK deployment on Azure
           published_ports:
             - 5601:5601
             - 9200:9200
-            - 5044:5044     
-      
+            - 5044:5044
+
         #Use systemd module
       - name: Enable service docker on boot
         systemd:
           name: docker
           enabled: yes
+
 
 This document contains the following details:
 - Description of the Topology
