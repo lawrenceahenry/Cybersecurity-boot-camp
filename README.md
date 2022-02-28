@@ -9,19 +9,13 @@ https://drive.google.com/file/d/1zPLZgBGqDFZ9h9GnVdb6dDyJT6rMKglO/view?usp=shari
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YML file may be used to install only certain pieces of it, such as Filebeat.
 
+  
+
   name: Configure Elk VM with Docker
   hosts: elk
   remote_user: azadmin
   become: true
   task:
-    # Use apt module
-    - name: install docker.io
-      apt:
-        update_cache: yes
-        force_apt_get: yes
-        name: docker.io
-        state: present
-
     # Use apt module
     - name: install docker.io
       apt:
