@@ -23,6 +23,14 @@ These files have been tested and used to generate a live ELK deployment on Azure
         state: present
 
     # Use apt module
+    - name: install docker.io
+      apt:
+        update_cache: yes
+        force_apt_get: yes
+        name: docker.io
+        state: present
+        
+    # Use apt module
     - name: Install python3-pip
       apt:
         force_apt_get: yes
